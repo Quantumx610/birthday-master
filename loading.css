@@ -1,0 +1,50 @@
+/* Centered Spinner Overlay */
+.loading {
+  position: fixed;
+  z-index: 99999;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: rgba(0, 0, 0, 0.3);
+}
+
+/* Hide fallback text */
+.loading:not(:required) {
+  font: 0/0 a;
+  color: transparent;
+  text-shadow: none;
+  border: 0;
+  background: none;
+}
+
+/* Spinner */
+.loading:not(:required)::after {
+  content: '';
+  width: 1em;
+  height: 1em;
+  border-radius: 50%;
+  animation: spinner 1.5s linear infinite;
+  box-shadow:
+    #FFF 1.5em 0 0 0,
+    rgba(0, 0, 0, 0.75) 1.1em 1.1em 0 0,
+    rgba(0, 0, 0, 0.75) 0 1.5em 0 0,
+    #FFF -1.1em 1.1em 0 0,
+    rgba(0, 0, 0, 0.5) -1.5em 0 0 0,
+    rgba(0, 0, 0, 0.5) -1.1em -1.1em 0 0,
+    rgba(0, 0, 0, 0.75) 0 -1.5em 0 0,
+    rgba(0, 0, 0, 0.75) 1.1em -1.1em 0 0;
+}
+
+/* Animation */
+@keyframes spinner {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
